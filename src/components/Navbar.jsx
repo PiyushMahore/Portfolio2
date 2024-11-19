@@ -17,7 +17,7 @@ function Navbar() {
     window.addEventListener('scroll', handleScrool)
 
     return (
-        <div className='nav fixed w-full top-0 left-0 py-5 flex justify-between items-center lg:px-[10%] px-3'>
+        <div className='nav fixed w-full top-0 left-0 py-5 flex justify-between items-center lg:px-[7%] px-3'>
             <div className='text-[34px] font-bold'>
                 PIYUSH
             </div>
