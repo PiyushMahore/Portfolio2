@@ -1,11 +1,12 @@
 #root {
-  max-width: 1280px;
+  overflow: hidden;
+  max-width: 100dvw;
   text-align: center
 }
 
 body {
   font-family: Space, sans-serif;
-  @apply bg-custom-gradient text-[#fff] px-3 sm:px-[4%] md:px-[5%] lg:px-[6%] xl:px-[7%] 2xl:px-[7%];
+  @apply bg-custom-gradient text-[#fff];
 }
 
 .nav {
@@ -25,8 +26,12 @@ body {
 }
 
 @keyframes rotation {
-  from {transform: rotate(0deg);}
-  to   {transform: rotate(359deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to   {
+    transform: rotate(359deg);
+  }
 }
 
 .rotating {

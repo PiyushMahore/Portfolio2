@@ -5,10 +5,11 @@ import { BsArrowRight } from "react-icons/bs";
 import github from '../assets/github.svg'
 import linkedin from '../assets/linkedin.svg'
 import x from '../assets/x.svg'
+import profile from '../assets/IMG2.jpg'
 
 function Home() {
     return (
-        <div className='home min-h-screen flex items-center lg:flex-row flex-col lg:mt-24 mt-32 px-[calc(var(--bs-gutter-x)*0.5)]'>
+        <div className='home min-h-screen flex items-center lg:flex-row flex-col lg:mt-24 mt-32 mb-10 sm:mb-0 px-[calc(var(--bs-gutter-x)*0.5)]'>
             <div className='flex lg:gap-5 gap-4 flex-col items-start lg:w-1/2 w-full'>
                 <span className='px-3 py-1.5 bg-[#052c65] rounded uppercase'>
                     piyush mahore
@@ -28,7 +29,7 @@ function Home() {
                     speed={50}
                     repeat={Infinity}
                 />
-                <p className='text-left text-base lg:text-xl lg:mt-4'>
+                <p className='text-left text-base lg:text-xl lg:mt-4 pr-10'>
                     Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy alteration boisterous the attachment.
                 </p>
                 <div className='mt-2 flex items-center gap-5 sm:flex-row flex-col w-full'>
@@ -50,9 +51,9 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className='lg:w-1/2 w-full py-12 lg:p-0'>
-                <div className='box-border flex justify-center'>
-                    <img className='w-full h-full md:w-4/5 xl:w-full' src="https://janna-react.vercel.app/images/home-banner.png" alt='IMG' />
+            <div className='lg:w-1/2 w-full py-12 lg:py-0 sm:mb-16 lg:mb-0'>
+                <div className='box-border flex justify-center rounded-3xl xl:rounded-full overflow-hidden'>
+                    <img className='w-full h-full md:w-4/5 xl:w-full bg-center bg-cover' src={profile} alt='IMG' />
                 </div>
             </div>
         </div>
