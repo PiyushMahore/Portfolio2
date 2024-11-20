@@ -8,7 +8,7 @@ import x from '../assets/x.svg'
 
 function Home() {
     return (
-        <div className='min-h-screen flex items-center lg:flex-row flex-col lg:mt-24 mt-32 px-[calc(var(--bs-gutter-x)*0.5)]'>
+        <div className='home min-h-screen flex items-center lg:flex-row flex-col lg:mt-24 mt-32 px-[calc(var(--bs-gutter-x)*0.5)]'>
             <div className='flex lg:gap-5 gap-4 flex-col items-start lg:w-1/2 w-full'>
                 <span className='px-3 py-1.5 bg-[#052c65] rounded uppercase'>
                     piyush mahore
@@ -37,22 +37,22 @@ function Home() {
                             Get in touch <BsArrowRight />
                         </Link>
                     </button>
-                    <div className='flex justify-center gap-5'>
-                        <a href="https://github.com/PiyushMahore" className='w-12'>
+                    <div className='flex justify-center gap-3 lg:gap-5'>
+                        <a href="https://github.com/PiyushMahore" className='w-12 hover:scale-110 duration-200 ease-in'>
                             <img className='bg-[#fff] rounded-full border-2 border-[#fff]' src={github} />
                         </a>
-                        <a href="https://x.com/Piyush_Mahore_" className='w-12'>
+                        <a href="https://x.com/Piyush_Mahore_" className='w-12 hover:scale-110 duration-200 ease-in'>
                             <img className='bg-[#fff] rounded-full border-2 border-[#fff]' src={x} />
                         </a>
-                        <a href="https://www.linkedin.com/in/piyush-mahore-51602a2b1/" className='w-12'>
+                        <a href="https://www.linkedin.com/in/piyush-mahore-51602a2b1/" className='w-12 hover:scale-110 duration-200 ease-in'>
                             <img className='bg-[#fff] rounded-full border-2 border-[#fff]' src={linkedin} />
                         </a>
                     </div>
                 </div>
             </div>
-            <div className='lg:w-1/2 w-full'>
+            <div className='lg:w-1/2 w-full py-12 lg:p-0'>
                 <div className='box-border flex justify-center'>
-                    <img className='w-full h-full md:w-4/5 xl:w-full' src="" alt='IMG' />
+                    <img className='w-full h-full md:w-4/5 xl:w-full' src="https://janna-react.vercel.app/images/home-banner.png" alt='IMG' />
                 </div>
             </div>
         </div>

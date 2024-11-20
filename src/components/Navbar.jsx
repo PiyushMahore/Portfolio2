@@ -17,7 +17,7 @@ function Navbar() {
     window.addEventListener('scroll', handleScrool)
 
     return (
-        <div className='nav fixed w-full top-0 left-0 py-5 flex justify-between items-center lg:px-[7%] px-3'>
+        <div className='nav fixed w-full top-0 left-0 py-5 flex justify-between items-center lg:px-[7%] px-3 z-50'>
             <div className='text-[34px] font-bold'>
                 PIYUSH
             </div>
@@ -27,22 +27,22 @@ function Navbar() {
             <div className='items-center lg:flex hidden'>
                 <ul className='flex text-sm list-none pr-12'>
                     <li className='pr-10'>
-                        <Link to='home' className='cursor-pointer'>
+                        <Link activeClass='active' to='home' className='cursor-pointer'>
                             HOME
                         </Link>
                     </li>
                     <li className='pr-10'>
-                        <Link to='about' className='cursor-pointer'>
+                        <Link activeClass='active' to='about' className='cursor-pointer'>
                             ABOUT ME
                         </Link>
                     </li>
                     <li className='pr-10'>
-                        <Link to='projects' className='cursor-pointer'>
+                        <Link activeClass='active' to='projects' className='cursor-pointer'>
                             PROJECTS
                         </Link>
                     </li>
                     <li>
-                        <Link to='contact' className='cursor-pointer'>
+                        <Link activeClass='active' to='contact' className='cursor-pointer'>
                             CONTACT
                         </Link>
                     </li>
@@ -62,24 +62,24 @@ function Navbar() {
                 <div className='border-2 rounded py-1 px-2 border-gray-600'>
                     <LuMenu onClick={handleNav} size={25} />
                 </div>
-                <div className={`${nav ? "flex" : "hidden"} bg-[#040c16] list-none flex-col absolute mt-6 left-0 w-full items-start py-5 px-5 border-t border-gray-600 gap-5`}>
-                    <li>
-                        <Link to='home' smooth={true} duration={100}>
+                <div className={`${nav ? "translate-x-0" : "-translate-x-full"} flex transition-all duration-300 bg-[#040c16] list-none flex-col absolute mt-6 left-0 w-full items-start py-5 px-5 border-t border-gray-600 gap-5`}>
+                    <li className={`${nav ? "opacity-100" : "opacity-0"} transition-all duration-[1500ms]`}>
+                        <Link activeClass='active' to='home' smooth={true} duration={100}>
                             HOME
                         </Link>
                     </li>
-                    <li>
-                        <Link to='about' smooth={true} duration={300}>
+                    <li className={`${nav ? "opacity-100" : "opacity-0"} transition-all duration-[1500ms]`}>
+                        <Link activeClass='active' to='about' smooth={true} duration={300}>
                             ABOUT ME
                         </Link>
                     </li>
-                    <li>
-                        <Link to='projects' smooth={true} duration={500}>
+                    <li className={`${nav ? "opacity-100" : "opacity-0"} transition-all duration-[1500ms]`}>
+                        <Link activeClass='active' to='projects' smooth={true} duration={500}>
                             PROJECTS
                         </Link>
                     </li>
-                    <li>
-                        <Link to='contact' smooth={true} duration={700}>
+                    <li className={`${nav ? "opacity-100" : "opacity-0"} transition-all duration-[1500ms]`}>
+                        <Link activeClass='active' to='contact' smooth={true} duration={700}>
                             CONTACT
                         </Link>
                     </li>
