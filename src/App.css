@@ -42,3 +42,13 @@ body {
 .rotating2 {
   animation: rotation 20s infinite linear;
 }
+
+.hovereffect {
+  transition: all 500ms linear;
+}
+
+.slick-dots li.slick-active div {
+  background-color: #3b82f6; /* Match hover color */
+  transition: all 500ms linear;
+  scale: 1.5;
+}
