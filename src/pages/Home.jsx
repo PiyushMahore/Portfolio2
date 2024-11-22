@@ -34,7 +34,7 @@ function Home() {
                 </p>
                 <div className='mt-2 flex items-center gap-5 sm:flex-row flex-col w-full'>
                     <button className='sm:w-fit w-full text-xl py-3 px-8 bg-[#0d6efd] rounded-full cursor-pointer hover:bg-[#040c16] hover:border-white border-2 border-[#0d6efd] transition-all duration-[.35s] ease-out'>
-                        <Link className='flex items-center gap-3 justify-center' to='contact'>
+                        <Link activeClass='active' smooth={true} duration={1200} className='flex items-center gap-3 justify-center' to='contact'>
                             Get in touch <BsArrowRight />
                         </Link>
                     </button>

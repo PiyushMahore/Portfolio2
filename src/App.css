@@ -52,3 +52,10 @@ body {
   transition: all 500ms linear;
   scale: 1.5;
 }
+
+.containerr {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;     
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+}
