@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { GoArrowRight } from "react-icons/go";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 function Projects() {
+    const sliderRef = useRef();
+    const [dotMapping, setDotMapping] = useState([0.5, 1.5, 2.5, 3.5, 4.5, 5.5]);
     const [projects, setProjects] = useState([
         {
             _id: 1,
@@ -51,42 +53,27 @@ function Projects() {
         },
     ])
 
-    var settings = {
+    const settings = {
+        infinite: true,
         dots: true,
         speed: 800,
-        slidesToShow: 3,
+        slidesToShow: 3.5,
         slidesToScroll: 1,
-        initialSlide: 0,
+        initialSlide: 0.5,
         arrows: false,
-        customPaging: (i) => (
-            <div className="mt-4 w-2.5 h-2.5 rounded-full border border-[#fff] transition duration-300"></div>
+        appendDots: (dots) => (
+            <ul className="slick-dots">
+                {dotMapping.map((slide, index) => (
+                    <li
+                        key={index}
+                        onClick={() => sliderRef.current.slickGoTo(slide)} // Navigate to mapped slide
+                        className={dots[index]?.props.className || ""} // Ensure active dot styling
+                    >
+                        <div className="dot"></div>
+                    </li>
+                ))}
+            </ul>
         ),
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
     };
 
     return (
@@ -98,40 +85,42 @@ function Projects() {
                 RECENT PROJECT
             </h1>
 
-            <Slider className='w-screen' {...settings}>
-                {/* Card */}
-                {
-                    projects.map((project) => (
-                        <div key={project._id} className='mt-7'>
-                            <div className='h-fit w-[400px] bg-[#fff] p-3.5 rounded-xl overflow-hidden'>
-                                <div className='overflow-hidden rounded'>
-                                    <div className='overflow-hidden relative transform transition-transform duration-500 hover:scale-105'>
-                                        <img className='bg-cover bg-center bg-no-repeat' src="https://janna-react.vercel.app/images/popup-project-1.jpg" alt="" />
-                                        <button className='absolute hovereffect hover:bg-[rgba(0,_0,_0,_.5)] inset-0 opacity-0 hover:opacity-100'>
-                                            <span className='px-3 py-1.5 bg-[#fff] text-[#040c16] rounded-md'>
-                                                LIVE
-                                            </span>
-                                        </button>
+            <div className='w-screen'>
+                <Slider {...settings} ref={sliderRef}>
+                    {/* Card */}
+                    {
+                        projects.map((project) => (
+                            <div key={project._id} className='mt-7'>
+                                <div className='h-fit w-[400px] bg-[#fff] p-3.5 rounded-xl overflow-hidden'>
+                                    <div className='overflow-hidden rounded'>
+                                        <div className='overflow-hidden relative transform transition-transform duration-500 hover:scale-105'>
+                                            <img className='bg-cover bg-center bg-no-repeat' src="https://janna-react.vercel.app/images/popup-project-1.jpg" alt="" />
+                                            <button className='absolute hovereffect hover:bg-[rgba(0,_0,_0,_.5)] inset-0 opacity-0 hover:opacity-100'>
+                                                <span className='px-3 py-1.5 bg-[#fff] text-[#040c16] rounded-md'>
+                                                    LIVE
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='mt-3 flex items-center justify-between'>
-                                    <div className='flex flex-col items-start gap-1'>
-                                        <h3 className='text-[#040c16]'>
-                                            {project.title}
-                                        </h3>
-                                        <h6 className='text-[#707476] text-start text-xs'>
-                                            {project.techStacks}
-                                        </h6>
-                                    </div>
-                                    <div className='bg-[#0788ff] rounded-full p-2 border-2 border-[#040c16] hover:bg-[#040c16] transition-all ease-in-out duration-300 cursor-pointer'>
-                                        <GoArrowRight size={25} />
+                                    <div className='mt-3 flex items-center justify-between'>
+                                        <div className='flex flex-col items-start gap-1'>
+                                            <h3 className='text-[#040c16]'>
+                                                {project.title}
+                                            </h3>
+                                            <h6 className='text-[#707476] text-start text-xs'>
+                                                {project.techStacks}
+                                            </h6>
+                                        </div>
+                                        <div className='bg-[#0788ff] rounded-full p-2 border-2 border-[#040c16] hover:bg-[#040c16] transition-all ease-in-out duration-300 cursor-pointer'>
+                                            <GoArrowRight size={25} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))
-                }
-            </Slider>
+                        ))
+                    }
+                </Slider>
+            </div>
         </div >
     )
 }
