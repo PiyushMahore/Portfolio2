@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { GoArrowRight } from "react-icons/go";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,6 +7,8 @@ import Slider from "react-slick";
 function Projects() {
     const sliderRef = useRef();
     const [dotMapping, setDotMapping] = useState([0.5, 1.5, 2.5, 3.5, 4.5, 5.5]);
+    const [initialSlide, setInitialSlide] = useState()
+
     const [projects, setProjects] = useState([
         {
             _id: 1,
@@ -53,35 +55,112 @@ function Projects() {
         },
     ])
 
+    useEffect(() => {
+        const updateInitialSlide = () => {
+            const screenWidth = window.innerWidth;
+
+            if (screenWidth <= 1419 && screenWidth > 1230) {
+                setInitialSlide(1);
+            } else if (screenWidth <= 1230 && screenWidth > 1010) {
+                setInitialSlide(0.5)
+            } else if (screenWidth <= 1010 && screenWidth > 810) {
+                setInitialSlide(1)
+            } else if (screenWidth <= 810 && screenWidth > 610) {
+                setInitialSlide(0.5)
+            } else if (screenWidth < 500 && screenWidth > 404) {
+                setInitialSlide(1)
+            } else if (screenWidth < 404) {
+                setInitialSlide(0.5)
+            } else {
+                setInitialSlide(0.5); // Example for desktop
+            }
+        };
+
+        updateInitialSlide();
+        window.addEventListener("resize", updateInitialSlide);
+
+        return () => {
+            window.removeEventListener("resize", updateInitialSlide);
+        };
+    }, []);
+
     const settings = {
         infinite: true,
-        dots: true,
         speed: 800,
         slidesToShow: 3.5,
         slidesToScroll: 1,
-        initialSlide: 0.5,
+        initialSlide: initialSlide,
         arrows: false,
-        appendDots: (dots) => (
-            <ul className="slick-dots">
-                {dotMapping.map((slide, index) => (
-                    <li
-                        key={index}
-                        onClick={() => sliderRef.current.slickGoTo(slide)} // Navigate to mapped slide
-                        className={dots[index]?.props.className || ""} // Ensure active dot styling
-                    >
-                        <div className="dot"></div>
-                    </li>
-                ))}
-            </ul>
-        ),
+        responsive: [
+            {
+                breakpoint: 1419,
+                settings: {
+                    infinite: true,
+                    speed: 800,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 1230,
+                settings: {
+                    infinite: true,
+                    speed: 800,
+                    slidesToShow: 2.5,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 1010,
+                settings: {
+                    infinite: true,
+                    speed: 800,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 810,
+                settings: {
+                    infinite: true,
+                    speed: 800,
+                    slidesToShow: 1.5,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    infinite: true,
+                    speed: 800,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 404,
+                settings: {
+                    infinite: true,
+                    speed: 800,
+                    slidesToShow: 0.5,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+            }
+        ]
     };
 
     return (
         <div className='projects min-h-screen flex flex-col justify-center items-start gap-4 py-16'>
-            <div className='px-3 py-1 bg-[rgba(7,_136,_255,_.2)] rounded uppercase text-3xl'>
-                skills
+            <div className='px-3 py-1 bg-[rgba(7,_136,_255,_.2)] rounded uppercase text-xl'>
+                MY WORK
             </div>
-            <h1 className='font-bold text-4xl'>
+            <h1 className='font-bold text-3xl md:text-4xl'>
                 RECENT PROJECT
             </h1>
 
@@ -91,7 +170,7 @@ function Projects() {
                     {
                         projects.map((project) => (
                             <div key={project._id} className='mt-7'>
-                                <div className='h-fit w-[400px] bg-[#fff] p-3.5 rounded-xl overflow-hidden'>
+                                <div className='h-auto w-[320px] sm:w-[400px] bg-[#fff] p-3.5 rounded-xl overflow-hidden'>
                                     <div className='overflow-hidden rounded'>
                                         <div className='overflow-hidden relative transform transition-transform duration-500 hover:scale-105'>
                                             <img className='bg-cover bg-center bg-no-repeat' src="https://janna-react.vercel.app/images/popup-project-1.jpg" alt="" />
@@ -107,7 +186,7 @@ function Projects() {
                                             <h3 className='text-[#040c16]'>
                                                 {project.title}
                                             </h3>
-                                            <h6 className='text-[#707476] text-start text-xs'>
+                                            <h6 className='text-[#707476] text-start text-[10px] md:text-xs'>
                                                 {project.techStacks}
                                             </h6>
                                         </div>
