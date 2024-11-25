@@ -3,6 +3,12 @@ import { GoArrowRight } from "react-icons/go";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import bookStore from "../../public/Book Store.png"
+import dashboard from "../../public/Dashboard.png"
+import eCommerce from "../../public/E-Commerce.png"
+import expenseTracker from "../../public/Expense Tracker.png"
+import uptimeMonitor from "../../public/Uptime Monitor.png"
+import weatherApp from "../../public/Weather App.png"
 
 function Projects() {
     const sliderRef = useRef();
@@ -12,46 +18,46 @@ function Projects() {
     const [projects, setProjects] = useState([
         {
             _id: 1,
-            img: "",
+            img: bookStore,
             title: "BOOK STORE",
             techStacks: "FIREBASE, REACT.JS, TAILWIND CSS",
-            gitHubLink: "",
-            liveLink: ""
+            gitHubLink: "https://github.com/PiyushMahore/Book-Store",
+            liveLink: "https://exclusive-bookstore.netlify.app/"
         }, {
             _id: 2,
-            img: "",
+            img: uptimeMonitor,
             title: "UPTIME MONITOR",
             techStacks: "NODE.JS, EXPRESS.JS, REACT.JS, TAILWIND CSS",
-            gitHubLink: "",
-            liveLink: ""
+            gitHubLink: "https://github.com/PiyushMahore/Website-Uptime-Monitor",
+            liveLink: "https://github.com/PiyushMahore/Website-Uptime-Monitor"
         }, {
             _id: 3,
-            img: "",
+            img: eCommerce,
             title: "E-COMMMERCE",
             techStacks: "REACT.JS, TAILWIND CSS",
-            gitHubLink: "",
-            liveLink: ""
+            gitHubLink: "https://github.com/PiyushMahore/Ecommerce",
+            liveLink: "https://exclusive-shopzee-ecommerce.netlify.app/"
         }, {
             _id: 4,
-            img: "",
-            title: "HIREME LANDING PAGE",
-            techStacks: "REACT.JS, CSS",
-            gitHubLink: "",
-            liveLink: ""
+            img: weatherApp,
+            title: "WEATHER APP",
+            techStacks: "HTML, CSS, JAVASCRIPT",
+            gitHubLink: "https://github.com/PiyushMahore/Weather-App",
+            liveLink: "https://github.com/PiyushMahore/Weather-App"
         }, {
             _id: 5,
-            img: "",
+            img: expenseTracker,
             title: "EXPENSE TRACKER",
             techStacks: "REACT.JS, TAILWIND CSS",
-            gitHubLink: "",
-            liveLink: ""
+            gitHubLink: "https://github.com/PiyushMahore/Expense-tracker",
+            liveLink: "https://expens-tracke.netlify.app"
         }, {
             _id: 6,
-            img: "",
+            img: dashboard,
             title: "DASHBOARD",
             techStacks: "REACT.JS, TAILWIND CSS",
-            gitHubLink: "",
-            liveLink: ""
+            gitHubLink: "https://github.com/PiyushMahore/Dashboard",
+            liveLink: "https://github.com/PiyushMahore/Dashboard"
         },
     ])
 
@@ -67,7 +73,7 @@ function Projects() {
                 setInitialSlide(1)
             } else if (screenWidth <= 810 && screenWidth > 610) {
                 setInitialSlide(0.5)
-            } else if (screenWidth < 500 && screenWidth > 404) {
+            } else if (screenWidth <= 610 && screenWidth > 404) {
                 setInitialSlide(1)
             } else if (screenWidth < 404) {
                 setInitialSlide(0.5)
@@ -133,7 +139,7 @@ function Projects() {
                 }
             },
             {
-                breakpoint: 500,
+                breakpoint: 611,
                 settings: {
                     infinite: true,
                     speed: 800,
@@ -170,13 +176,15 @@ function Projects() {
                     {
                         projects.map((project) => (
                             <div key={project._id} className='mt-7'>
-                                <div className='h-auto w-[320px] sm:w-[400px] bg-[#fff] p-3.5 rounded-xl overflow-hidden'>
-                                    <div className='overflow-hidden rounded'>
-                                        <div className='overflow-hidden relative transform transition-transform duration-500 hover:scale-105'>
-                                            <img className='bg-cover bg-center bg-no-repeat' src="https://janna-react.vercel.app/images/popup-project-1.jpg" alt="" />
+                                <div className='h-[360px] w-[400px] bg-[#fff] p-3.5 rounded-xl overflow-hidden'>
+                                    <div className='overflow-hidden rounded w-full h-[83%]'>
+                                        <div className='w-full h-full overflow-hidden relative transform transition-transform duration-500 hover:scale-105'>
+                                            <img className='w-full h-full bg-center bg-cover' src={project.img} alt="" />
                                             <button className='absolute hovereffect hover:bg-[rgba(0,_0,_0,_.5)] inset-0 opacity-0 hover:opacity-100'>
                                                 <span className='px-3 py-1.5 bg-[#fff] text-[#040c16] rounded-md'>
-                                                    LIVE
+                                                    <a href={project.liveLink}>
+                                                        LIVE
+                                                    </a>
                                                 </span>
                                             </button>
                                         </div>
@@ -191,7 +199,9 @@ function Projects() {
                                             </h6>
                                         </div>
                                         <div className='bg-[#0788ff] rounded-full p-2 border-2 border-[#040c16] hover:bg-[#040c16] transition-all ease-in-out duration-300 cursor-pointer'>
-                                            <GoArrowRight size={25} />
+                                            <a href={project.gitHubLink}>
+                                                <GoArrowRight size={25} />
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

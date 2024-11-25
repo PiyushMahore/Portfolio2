@@ -2,11 +2,11 @@ import React from 'react'
 import github from '../assets/github.svg'
 import linkedin from '../assets/linkedin.svg'
 import x from '../assets/x.svg'
-import profile from '../assets/IMG2.jpg'
+import profile from '../../public/profile.jpg'
 
 function Contact() {
     return (
-        <div className='contact min-h-screen py-[100px] containerr'>
+        <div className='contact min-h-screen my-[100px] containerr'>
             <div className='border border-[rgba(7,136,255,.2)] rounded bg-[rgba(7,136,255,.1)] shadow-lg shadow-[rgba(7,136,255,.2)]'>
                 <div className='flex p-5 lg:p-12'>
                     <div className='w-[55%] hidden lg:flex'>

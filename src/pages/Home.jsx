@@ -5,7 +5,7 @@ import { BsArrowRight } from "react-icons/bs";
 import github from '../assets/github.svg'
 import linkedin from '../assets/linkedin.svg'
 import x from '../assets/x.svg'
-import profile from '../assets/IMG2.jpg'
+import profile from '../../public/profile.jpg'
 
 function Home() {
     return (

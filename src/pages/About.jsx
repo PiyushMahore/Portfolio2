@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import { BsArrowRight } from "react-icons/bs";
-import profile from '../assets/IMG2.jpg'
+import profile from '../../public/profile.jpg'
 
 function About() {
     return (
@@ -22,7 +22,7 @@ function About() {
                         The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
                     </p>
                     <button className='my-6 text-xl py-3 px-8 bg-[#0d6efd] rounded-full cursor-pointer hover:bg-[#040c16] hover:border-white border-2 border-[#0d6efd] transition-all duration-[.35s] ease-out'>
-                        <Link className='flex items-center gap-3 justify-center' to='contact'>
+                        <Link className='flex items-center gap-3 justify-center' to='contact' smooth={true} duration={800}>
                             Get in touch <BsArrowRight />
                         </Link>
                     </button>
