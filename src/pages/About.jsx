@@ -1,17 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { BsArrowRight } from "react-icons/bs";
 import profile from '../../public/profile.jpg'
 
 function About() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entrie) => {
+            if (entrie.isIntersecting) {
+                entrie.target.classList.add('aboutAnimation2')
+            }
+        })
+    })
+
+    useEffect(() => {
+        const element = document.getElementById('about')
+        observer.observe(element)
+        const element2 = document.getElementById('about2')
+        observer.observe(element2)
+    }, [])
+
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach((entrie) => {
+            if (entrie.isIntersecting) {
+                entrie.target.classList.add('aboutAnimation')
+            } else {
+                entrie.target.classList.remove('aboutAnimation')
+            }
+        })
+    })
+
+    useEffect(() => {
+        const element = document.getElementById('aboutImg')
+        observer2.observe(element)
+    }, [])
+
     return (
         <div className='about w-full min-h-screen flex justify-center gap-12 lg:gap-16 lg:flex-row flex-col-reverse pt-16 mt-10 2xl:ml-20 ml-auto mr-auto gutter-spacing items-center xl:items-start'>
-            <div className='lg:w-fit z-10 text-center lg:mb-0 mb-52'>
+            <div id='aboutImg' className='lg:w-fit z-10 text-center lg:mb-0 mb-52'>
                 <img className='relative z-50 border-2 border-[#fff] rounded-xl overflow-hidden' src={profile} alt="" />
                 <img className='relative bottom-56 z-10 right-32 rotating2 xl:flex hidden' src="https://janna-react.vercel.app/images/effect-1.svg" alt="" />
             </div>
             <div className='lg:w-1/2 pt-10 flex items-start'>
-                <div className='flex items-start flex-col gap-3 px-2'>
+                <div id='about' className='flex items-start flex-col gap-3 px-2'>
                     <span className='px-3 py-1.5 bg-[#052c65] rounded uppercase'>
                         about me
                     </span>
@@ -27,7 +57,7 @@ function About() {
                         </Link>
                     </button>
                 </div>
-                <div className='rotating xl:flex hidden w-full relative -top-9'>
+                <div id='about2' className='rotating xl:flex hidden w-full relative -top-9 '>
                     <img src="https://janna-react.vercel.app/images/effect-2.svg" alt="" />
                 </div>
             </div>

@@ -161,6 +161,19 @@ function Projects() {
         ]
     };
 
+    const onserver = new IntersectionObserver((entries) => {
+        entries.forEach((entrie) => {
+            entrie.target.classList.add('projectAnimation')
+        })
+    })
+
+    useEffect(() => {
+        const elements = document.querySelectorAll('.projects')
+        elements.forEach((element) => {
+            onserver.observe(element)
+        })
+    }, [])
+
     return (
         <div className='projects min-h-screen flex flex-col justify-center items-start gap-4 py-16'>
             <div className='px-3 py-1 bg-[rgba(7,_136,_255,_.2)] rounded uppercase text-xl'>
@@ -170,7 +183,7 @@ function Projects() {
                 RECENT PROJECT
             </h1>
 
-            <div className='w-screen'>
+            <div className='w-screen projects'>
                 <Slider {...settings} ref={sliderRef}>
                     {/* Card */}
                     {

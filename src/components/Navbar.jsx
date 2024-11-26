@@ -27,27 +27,27 @@ function Navbar() {
             <div className='items-center lg:flex hidden'>
                 <ul className='flex text-sm list-none pr-12'>
                     <li className='pr-10'>
-                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-100} to='home' className='nav-link'>
+                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-300} to='home' className='nav-link'>
                             HOME
                         </Link>
                     </li>
                     <li className='pr-10'>
-                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-100} to='about' className='nav-link'>
+                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-300} to='about' className='nav-link'>
                             ABOUT ME
                         </Link>
                     </li>
                     <li className='pr-10'>
-                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-100} to='skills' className='nav-link'>
+                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-300} to='skills' className='nav-link'>
                             SKILLS
                         </Link>
                     </li>
                     <li className='pr-10'>
-                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-100} to='projects' className='nav-link'>
+                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-300} to='projects' className='nav-link'>
                             PROJECTS
                         </Link>
                     </li>
                     <li>
-                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-110} to="contact" className='nav-link'>
+                        <Link activeClass='active' smooth={true} duration={800} spy={true} offset={-310} to="contact" className='nav-link'>
                             CONTACT
                         </Link>
                     </li>

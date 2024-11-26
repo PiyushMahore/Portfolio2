@@ -1,17 +1,56 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import github from '../assets/github.svg'
 import linkedin from '../assets/linkedin.svg'
 import x from '../assets/x.svg'
 import profile from '../../public/profile.jpg'
 
 function Contact() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entrie) => {
+            if (entrie.isIntersecting) {
+                entrie.target.classList.add('textAnimate')
+            }
+        })
+    })
+
+    useEffect(() => {
+        const element = document.getElementById('textAnimation')
+        observer.observe(element)
+    }, [])
+
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach((entrie) => {
+            if (entrie.isIntersecting) {
+                entrie.target.classList.add('contactAnimate')
+            }
+        })
+    })
+
+    useEffect(() => {
+        const element = document.getElementById('contactAnimation')
+        observer2.observe(element)
+    }, [])
+
+    const observer3 = new IntersectionObserver((entries) => {
+        entries.forEach((entrie) => {
+            if (entrie.isIntersecting) {
+                entrie.target.classList.add('logoAnimate')
+            }
+        })
+    })
+
+    useEffect(() => {
+        const element = document.getElementById('logoAnimation')
+        observer3.observe(element)
+    }, [])
+
     return (
         <div className='contact min-h-screen my-[100px] containerr'>
             <div className='border border-[rgba(7,136,255,.2)] rounded bg-[rgba(7,136,255,.1)] shadow-lg shadow-[rgba(7,136,255,.2)]'>
                 <div className='flex p-5 lg:p-12'>
                     <div className='w-[55%] hidden lg:flex'>
                     </div>
-                    <div className='w-full flex items-start flex-col gap-2.5'>
+                    <div id='textAnimation' className='w-full flex items-start flex-col gap-2.5'>
                         <h1 className='font-bold text-3xl lg:text-5xl text-left'>
                             Let’s Discuss Your Project
                         </h1>
@@ -55,7 +94,7 @@ function Contact() {
                         <div className='w-full lg:flex hidden rounded-2xl overflow-hidden box-border -mt-[50%]'>
                             <img className='h-full w-full' src={profile} alt="" />
                         </div>
-                        <div className='flex flex-col lg:items-start gap-4 lowercase lg:mt-10'>
+                        <div id='contactAnimation' className='flex flex-col lg:items-start gap-4 lowercase lg:mt-10'>
                             <div className='flex flex-col gap-1.5 items-start'>
                                 <h5 className='text-gray-200'>
                                     Write an e-mail
@@ -73,7 +112,7 @@ function Contact() {
                                 </h3>
                             </div>
                         </div>
-                        <div className='flex gap-2 lg:gap-4 mt-10'>
+                        <div id='logoAnimation' className='flex gap-2 lg:gap-4 mt-10'>
                             <a href="https://github.com/PiyushMahore" className='w-11 hover:scale-110 duration-200 ease-in'>
                                 <img className='bg-[#fff] rounded-full border-2 border-[#fff]' src={github} />
                             </a>

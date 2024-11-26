@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { Link } from 'react-scroll'
 import { BsArrowRight } from "react-icons/bs";
@@ -8,9 +8,24 @@ import x from '../assets/x.svg'
 import profile from '../../public/profile.jpg'
 
 function Home() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entrie) => {
+            if (entrie.isIntersecting) {
+                entrie.target.classList.add('homeAnimation')
+            } else {
+                entrie.target.classList.remove('homeAnimation')
+            }
+        })
+    })
+
+    useEffect(() => {
+        const element = document.getElementById('home')
+        observer.observe(element)
+    }, [])
+
     return (
         <div className='home min-h-screen flex items-center lg:flex-row flex-col lg:mt-24 mt-32 mb-10 sm:mb-0 px-[calc(var(--bs-gutter-x)*0.5)]'>
-            <div className='flex lg:gap-5 gap-4 flex-col items-start lg:w-1/2 w-full'>
+            <div id='home' className='flex lg:gap-5 gap-4 flex-col items-start lg:w-1/2 w-full'>
                 <span className='px-3 py-1.5 bg-[#052c65] rounded uppercase'>
                     piyush mahore
                 </span>

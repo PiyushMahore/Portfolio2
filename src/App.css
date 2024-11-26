@@ -85,3 +85,111 @@ body {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   padding-right: calc(var(--bs-gutter-x) * 0.5);
 }
+
+@keyframes home {
+  0% {
+      opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.homeAnimation {
+  animation: home 1s ease;
+}
+
+@keyframes about {
+  0% {
+      transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.aboutAnimation {
+  animation: about 1s ease;
+}
+
+@keyframes about2 {
+  0% {
+      transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.aboutAnimation2 {
+  animation: about2 1s ease;
+}
+
+@keyframes logos {
+  0% {
+    transform: translateY(200px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.skillsAnimation {
+  animation: logos 1s ease;
+}
+
+@keyframes projects {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.projectAnimation {
+  animation: projects 1s linear;
+}
+
+@keyframes texts {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.textAnimate {
+  animation: texts 0.55s linear;
+}
+
+@keyframes contacts {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.contactAnimate {
+  animation: contacts 0.55s linear;
+}
+
+@keyframes contactLogo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.logoAnimate {
+  animation: contactLogo 1s linear;
+}
