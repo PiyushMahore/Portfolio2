@@ -52,10 +52,10 @@ function Contact() {
                     </div>
                     <div id='textAnimation' className='w-full flex items-start flex-col gap-2.5'>
                         <h1 className='font-bold text-3xl lg:text-5xl text-left'>
-                            Let’s Discuss Your Project
+                            Let’s Discuss
                         </h1>
                         <h6 className='font-medium text-[#fff] opacity-[.85] text-base max-w-[500px] text-left'>
-                            Always available for freelancing if the right project comes along, Feel free to contact me.
+                            I’m always open to new opportunities. Feel free to contact me!
                         </h6>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ function Contact() {
                     </div>
 
                     <div className='lg:w-[45%] w-full !lg:p-12 lg:px-14 px-5 pb-12'>
-                        <div className='w-full lg:flex hidden rounded-2xl overflow-hidden box-border -mt-[50%]'>
+                        <div className='w-full lg:flex hidden rounded-2xl overflow-hidden box-border -mt-[45%]'>
                             <img className='h-full w-full' src={profile} alt="" />
                         </div>
                         <div id='contactAnimation' className='flex flex-col lg:items-start gap-4 lowercase lg:mt-10'>
@@ -100,7 +100,7 @@ function Contact() {
                                     Write an e-mail
                                 </h5>
                                 <h3 className='text-2xl font-bold'>
-                                    sample@domain.com
+                                    piyush.mahoree@gmail.com
                                 </h3>
                             </div>
                             <div className='flex flex-col gap-1.5 items-start'>
@@ -108,7 +108,7 @@ function Contact() {
                                     Make a call
                                 </h5>
                                 <h3 className='text-2xl font-bold'>
-                                    +91 123 456 7890
+                                    +91 913 148 3566
                                 </h3>
                             </div>
                         </div>

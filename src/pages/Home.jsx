@@ -12,26 +12,26 @@ function Home() {
         entries.forEach((entrie) => {
             if (entrie.isIntersecting) {
                 entrie.target.classList.add('homeAnimation')
-            } else {
-                entrie.target.classList.remove('homeAnimation')
             }
         })
     })
 
     useEffect(() => {
-        const element = document.getElementById('home')
-        observer.observe(element)
+        const elements = document.querySelectorAll('.homee')
+        elements.forEach((element) => {
+            observer.observe(element)
+        })
     }, [])
 
     return (
         <div className='home min-h-screen flex items-center lg:flex-row flex-col lg:mt-24 mt-32 mb-10 sm:mb-0 px-[calc(var(--bs-gutter-x)*0.5)]'>
-            <div id='home' className='flex lg:gap-5 gap-4 flex-col items-start lg:w-1/2 w-full'>
-                <span className='px-3 py-1.5 bg-[#052c65] rounded uppercase'>
+            <div className='flex lg:gap-5 gap-4 flex-col items-start lg:w-1/2 w-full'>
+                <span className='px-3 py-1.5 bg-[#052c65] rounded uppercase homee'>
                     piyush mahore
                 </span>
-                <h1 className='font-bold text-4xl lg:text-5xl'>Hay! I’m Piyush</h1>
+                <h1 className='font-bold text-4xl lg:text-5xl homee'>Hay! I’m Piyush</h1>
                 <TypeAnimation
-                    className='uppercase font-bold text-[#0788ff] text-4xl lg:text-5xl'
+                    className='uppercase font-bold text-[#0788ff] text-4xl lg:text-5xl homee'
                     sequence={[
                         "I'm a Frontend",
                         1000,
@@ -44,23 +44,23 @@ function Home() {
                     speed={50}
                     repeat={Infinity}
                 />
-                <p className='text-left text-base lg:text-xl lg:mt-4 pr-10'>
-                    Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy alteration boisterous the attachment.
+                <p className='text-left text-base lg:text-xl lg:mt-3 pr-10 homee'>
+                    Building seamless digital solutions with passion and precision. Every project is an opportunity to create innovative, user-centered applications blending technology with creativity.
                 </p>
                 <div className='mt-2 flex items-center gap-5 sm:flex-row flex-col w-full'>
-                    <button className='sm:w-fit w-full text-xl py-3 px-8 bg-[#0d6efd] rounded-full cursor-pointer hover:bg-[#040c16] hover:border-white border-2 border-[#0d6efd] transition-all duration-[.35s] ease-out'>
+                    <button className='sm:w-fit w-full text-xl py-3 px-8 bg-[#0d6efd] rounded-full cursor-pointer hover:bg-[#040c16] hover:border-white border-2 border-[#0d6efd] transition-all duration-[.35s] ease-out homee'>
                         <Link activeClass='active' smooth={true} duration={1200} className='flex items-center gap-3 justify-center' to='contact'>
                             Get in touch <BsArrowRight />
                         </Link>
                     </button>
-                    <div className='flex justify-center gap-3 lg:gap-5'>
-                        <a href="https://github.com/PiyushMahore" className='w-12 hover:scale-110 duration-200 ease-in'>
+                    <div className='flex justify-center gap-3 lg:gap-5 homee'>
+                        <a href="https://github.com/PiyushMahore" className='w-12 hover:scale-110 duration-200 ease-in homee'>
                             <img className='bg-[#fff] rounded-full border-2 border-[#fff]' src={github} />
                         </a>
-                        <a href="https://x.com/Piyush_Mahore_" className='w-12 hover:scale-110 duration-200 ease-in'>
+                        <a href="https://x.com/Piyush_Mahore_" className='w-12 hover:scale-110 duration-200 ease-in homee'>
                             <img className='bg-[#fff] rounded-full border-2 border-[#fff]' src={x} />
                         </a>
-                        <a href="https://www.linkedin.com/in/piyush-mahore-51602a2b1/" className='w-12 hover:scale-110 duration-200 ease-in'>
+                        <a href="https://www.linkedin.com/in/piyush-mahore-51602a2b1/" className='w-12 hover:scale-110 duration-200 ease-in homee'>
                             <img className='bg-[#fff] rounded-full border-2 border-[#fff]' src={linkedin} />
                         </a>
                     </div>
