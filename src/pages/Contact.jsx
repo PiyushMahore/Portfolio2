@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import github from '../assets/github.svg'
 import linkedin from '../assets/linkedin.svg'
 import x from '../assets/x.svg'
 import profile from '../../public/profile.jpg'
 
 function Contact() {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [subject, setSubject] = useState('')
+    const [message, setMessage] = useState('')
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entrie) => {
             if (entrie.isIntersecting) {
@@ -44,13 +48,27 @@ function Contact() {
         observer3.observe(element)
     }, [])
 
+    const submitForm = (e) => {
+        e.preventDefault()
+        if (name && email && subject && message) {
+            alert('Form Submitted Successfully')
+            setName('')
+            setEmail('')
+            setSubject('')
+            setMessage('')
+            console.log(name, email, subject, message);
+        } else {
+            alert('Please fill all the fields')
+        }
+    }
+
     return (
-        <div className='contact min-h-screen my-[100px] containerr'>
+        <form onSubmit={submitForm} className='contact min-h-screen my-[100px] containerr'>
             <div className='border border-[rgba(7,136,255,.2)] rounded bg-[rgba(7,136,255,.1)] shadow-lg shadow-[rgba(7,136,255,.2)]'>
                 <div className='flex p-5 lg:p-12'>
                     <div className='w-[55%] hidden lg:flex'>
                     </div>
-                    <div id='textAnimation' className='w-full flex items-start flex-col gap-2.5'>
+                    <div id='textAnimation' className='w-full flex items-start flex-col gap-2.5 lg:ml-8'>
                         <h1 className='font-bold text-3xl lg:text-5xl text-left'>
                             Let’s Discuss
                         </h1>
@@ -64,27 +82,27 @@ function Contact() {
                         <div className='w-full flex md:flex-row flex-col sm:gap-0 gap-5'>
                             <div className='flex flex-col items-start gap-2 w-full px-4'>
                                 <label className='text-sm' htmlFor="name">YOUR NAME</label>
-                                <input className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="text" name="name" placeholder='Name *' />
+                                <input value={name} onChange={(e) => setName(e.target.value)} className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="text" name="name" placeholder='Name *' />
                             </div>
                             <div className='flex flex-col items-start gap-2 w-full px-4'>
                                 <label className='text-sm' htmlFor="name">YOUR EMAIL</label>
-                                <input className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="text" name="name" placeholder='Email *' />
+                                <input value={email} onChange={(e) => setEmail(e.target.value)} className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="text" name="name" placeholder='Email *' />
                             </div>
                         </div>
                         <div className='w-full'>
                             <div className='flex flex-col items-start gap-2 w-full px-4'>
                                 <label className='text-sm' htmlFor="name">SUBJECT</label>
-                                <input className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="text" name="name" placeholder='Subject *' />
+                                <input value={subject} onChange={(e) => setSubject(e.target.value)} className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="text" name="name" placeholder='Subject *' />
                             </div>
                         </div>
                         <div className='w-full'>
                             <div className='flex flex-col items-start gap-2 w-full px-4'>
                                 <label className='text-sm' htmlFor="name">YOUR MESSAGE</label>
-                                <textarea className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="" name="name" placeholder='Your message *' rows={4} ></textarea>
+                                <textarea value={message} onChange={(e) => setMessage(e.target.value)} className='w-full bg-[hsla(0,0%,100%,.05)] border border-[hsla(0,0%,100%,.15)] px-[0.75rem] py-[0.575rem] rounded-lg focus:outline-none' type="" name="name" placeholder='Your message *' rows={4} ></textarea>
                             </div>
                         </div>
                         <div className='w-full px-6'>
-                            <button className='w-full text-lg py-2.5 bg-[#0d6efd] rounded-full cursor-pointer hover:bg-[#040c16] hover:border-white border-2 border-[#0d6efd] transition-all duration-[.35s] ease-out'>
+                            <button type='submit' className='w-full text-lg py-2.5 bg-[#0d6efd] rounded-full cursor-pointer hover:bg-[#040c16] hover:border-white border-2 border-[#0d6efd] transition-all duration-[.35s] ease-out'>
                                 SEND MESSAGE
                             </button>
                         </div>
@@ -126,7 +144,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }
 

@@ -25,7 +25,7 @@ function App() {
   return (
     <div>
       <div
-        className="cursor-circle"
+        className="cursor-circle hidden xl:flex"
         style={{
           transform: `translate(${position.x}px, ${position.y}px)`,
         }}
